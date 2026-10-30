@@ -1,20 +1,19 @@
 [project]
 name = "insurance-cliam-dbt-project"
 version = "0.1.0"
-description = "Add your description here"
+description = "End-to-end insurance claims data pipeline using dbt and Databricks"
 readme = "README.md"
+
 authors = [
     { name = "vaniltonpaulo", email = "V.Paulo@campus.lmu.de" }
 ]
-requires-python = ">=3.13"
+
+requires-python = ">=3.13,<3.14"
+
 dependencies = [
-    "dbt-core>=1.12.6",
-    "dbt-databricks>=1.13.0",
+    "dbt-core>=1.12.6,<2.0.0",
+    "dbt-databricks>=1.13.0,<2.0.0",
 ]
 
-[project.scripts]
-insurance-cliam-dbt-project = "insurance_cliam_dbt_project:main"
-
-[build-system]
-requires = ["uv_build>=0.12.5,<0.13.0"]
-build-backend = "uv_build"
+[tool.uv]
+package = false
