@@ -1,43 +1,32 @@
+---
 version: 2
-
 models:
   - name: dim_customer
-    description: "Customer dimension table"
+    description: Customer dimension table
     columns:
       - name: customer_key
-        description: "Surrogate key for customer"
-        tests:
-          - not_null
-          - unique
+        description: Surrogate key for customer
+        tests: [not_null, unique]
       - name: policy_number
-        tests:
-          - not_null
-
+        tests: [not_null]
   - name: dim_vehicle
-    description: "Vehicle dimension table"
+    description: Vehicle dimension table with make, model, and year..
     columns:
       - name: vehicle_key
-        description: "Surrogate key for vehicle"
-        tests:
-          - not_null
-          - unique
-
+        description: Surrogate key for vehicle
+        tests: [not_null, unique]
   - name: dim_policy
-    description: "Policy dimension table"
+    description: Policy dimension table
     columns:
       - name: policy_key
-        description: "Surrogate key for policy"
-        tests:
-          - not_null
-          - unique
+        description: Surrogate key for policy
+        tests: [not_null, unique]
   - name: fact_claims
-    description: "Fact table containing claim measures and dimension keys"
+    description: Fact table containing claim measures and dimension keys
     columns:
       - name: claim_key
-        description: "Surrogate key for each claim"
-        tests:
-          - not_null
-          - unique
+        description: Surrogate key for each claim
+        tests: [not_null, unique]
       - name: customer_key
         tests:
           - not_null
@@ -57,26 +46,19 @@ models:
               to: ref('dim_policy')
               field: policy_key
       - name: total_claim_amount
-        tests:
-          - not_null
-
+        tests: [not_null]
   - name: mart_claims_summary
-    description: "Aggregated claims summary by state and severity"
+    description: Aggregated claims summary by state and severity
     columns:
       - name: incident_state
-        tests:
-          - not_null
+        tests: [not_null]
       - name: total_claims
-        tests:
-          - not_null
-
+        tests: [not_null]
   - name: mart_fraud_indicators
-    description: "Fraud risk scoring for each claim"
+    description: Fraud risk scoring for each claim
     columns:
       - name: claim_key
-        tests:
-          - not_null
+        tests: [not_null]
       - name: risk_score
-        description: "Composite fraud risk score (0-4)"
-        tests:
-          - not_null
+        description: Composite fraud risk score (0 - 4)
+        tests: [not_null]

@@ -1,0 +1,4 @@
+{
+    "python.defaultInterpreterPath": "/Users/vaniltonpaulo/Documents/Insurance-cliam-dbt-project/.venv/bin/python",
+    "dbt.dbtPythonPath": "/Users/vaniltonpaulo/Documents/Insurance-cliam-dbt-project/.venv/bin/python"
+}

@@ -1,0 +1,91 @@
+[0m11:49:54.426206 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a73a270>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bd57610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bd579d0>]}
+
+
+============================== 11:49:54.428840 | e757fffb-bfa3-46f4-ab3a-8628ea2f3b4d ==============================
+[0m11:49:54.428840 [info ] [MainThread]: Running with dbt=1.12.6
+[0m11:49:54.429168 [debug] [MainThread]: running dbt with arguments {'invocation_command': 'dbt init insurance_claims_pipeline', 'warn_error': 'None', 'static_parser': 'True', 'profiles_dir': '/Users/vaniltonpaulo/.dbt', 'send_anonymous_usage_stats': 'True', 'maximum_seed_size_mib': '1', 'cache_selected_only': 'False', 'quiet': 'False', 'target_path': 'None', 'empty': 'None', 'introspect': 'True', 'write_json': 'True', 'hints_enabled': 'True', 'use_colors': 'True', 'log_format': 'default', 'version_check': 'True', 'debug': 'False', 'printer_width': '80', 'no_print': 'None', 'use_experimental_parser': 'False', 'log_cache_events': 'False', 'log_path': 'logs', 'partial_parse': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'indirect_selection': 'eager', 'fail_fast': 'False'}
+[0m11:49:54.448725 [debug] [MainThread]: Starter project path: /Users/vaniltonpaulo/Documents/Insurance-cliam-dbt-project/.venv/lib/python3.13/site-packages/dbt/include/starter_project
+[0m11:49:54.452909 [info ] [MainThread]: Setting up your profile.
+[0m11:51:51.366730 [debug] [MainThread]: Spark adapter: Setting pyhive.hive logging to ERROR
+[0m11:51:51.367233 [debug] [MainThread]: Spark adapter: Setting thrift.transport logging to ERROR
+[0m11:51:51.367385 [debug] [MainThread]: Spark adapter: Setting thrift.protocol logging to ERROR
+[0m11:57:42.910828 [info ] [MainThread]: Profile insurance_claims_pipeline written to /Users/vaniltonpaulo/.dbt/profiles.yml using target's profile_template.yml and your supplied values.
+[0m11:57:42.930321 [info ] [MainThread]: Running dbt debug to validate the project...
+[0m11:57:42.931684 [info ] [MainThread]: dbt version: 1.12.6
+[0m11:57:42.932187 [info ] [MainThread]: python version: 3.13.0
+[0m11:57:42.932535 [info ] [MainThread]: python path: /Users/vaniltonpaulo/Documents/Insurance-cliam-dbt-project/.venv/bin/python3
+[0m11:57:42.932979 [info ] [MainThread]: os info: macOS-26.0.1-arm64-arm-64bit-Mach-O
+[0m11:57:43.006779 [info ] [MainThread]: Using profiles dir at /Users/vaniltonpaulo/.dbt
+[0m11:57:43.007096 [info ] [MainThread]: Using profiles.yml file at /Users/vaniltonpaulo/.dbt/profiles.yml
+[0m11:57:43.007260 [info ] [MainThread]: Using dbt_project.yml file at /Users/vaniltonpaulo/Documents/Insurance-cliam-dbt-project/insurance_claims_pipeline/dbt_project.yml
+[0m11:57:43.007564 [info ] [MainThread]: adapter type: databricks
+[0m11:57:43.007767 [info ] [MainThread]: adapter version: 1.13.0
+[0m11:57:43.082906 [info ] [MainThread]: Configuration:
+[0m11:57:43.083280 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m11:57:43.083486 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m11:57:43.084082 [info ] [MainThread]: Required dependencies:
+[0m11:57:43.084665 [debug] [MainThread]: Executing "git --help"
+[0m11:57:43.106603 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m11:57:43.107198 [debug] [MainThread]: STDERR: "b''"
+[0m11:57:43.107404 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m11:57:43.107568 [info ] [MainThread]: Connection:
+[0m11:57:43.107787 [info ] [MainThread]:   host: dbc-fa53e5a0-1e32.cloud.databricks.com/?o=1477644658605645
+[0m11:57:43.107918 [info ] [MainThread]:   http_path: /sql/1.0/warehouses/07ae6d56e1d630c2
+[0m11:57:43.108072 [info ] [MainThread]:   catalog: insurance
+[0m11:57:43.108179 [info ] [MainThread]:   schema: default
+[0m11:57:43.108607 [info ] [MainThread]: Registered adapter: databricks=1.13.0
+[0m11:57:43.310349 [debug] [MainThread]: Databricks adapter: DatabricksDBTConnection(session-id=None, name=debug) - Creating connection
+[0m11:57:43.310749 [debug] [MainThread]: Acquiring new databricks connection 'debug'
+[0m11:57:47.866152 [info ] [MainThread]: Databricks adapter: SPOG discovery probe to 'https://dbc-fa53e5a0-1e32.cloud.databricks.com/?o=1477644658605645/.well-known/databricks-config' failed after 3 attempts (last error: Expecting value: line 1 column 1 (char 0)). Proceeding as a non-SPOG host. If dbc-fa53e5a0-1e32.cloud.databricks.com/?o=1477644658605645 is a SPOG (unified) workspace, routing errors may follow; verify network reachability to /.well-known/databricks-config.
+[0m11:57:47.872954 [info ] [MainThread]: Databricks adapter:   SPOG host (host_type=None): no
+[0m11:57:47.873556 [info ] [MainThread]: Databricks adapter:   workspace_id (from ?o= in http_path): None
+[0m11:57:47.874300 [info ] [MainThread]: Databricks adapter:   databricks-sql-connector version: 4.4.0 (supported)
+[0m11:57:47.875234 [info ] [MainThread]: Databricks adapter:   databricks-sdk version: 0.117.0 (supported)
+[0m11:57:47.876166 [debug] [MainThread]: Using databricks connection "debug"
+[0m11:57:47.876592 [debug] [MainThread]: On debug: select 1 as id
+[0m11:57:47.876952 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:57:49.574935 [error] [MainThread]: databricks-sql-connector adapter: ThriftBackend.attempt_request: Exception: 
+[0m11:57:49.608208 [error] [MainThread]: Databricks adapter: Connection(session-id=Unknown) - Exception while trying to create connection: Error during request to server. 
+Error properties: attempt=1/30, bounded-retry-delay=None, elapsed-seconds=0.6062028408050537/900.0, error-message=, http-code=404, method=OpenSession, no-retry-reason=non-retryable error, original-exception=, query-id=None, session-id=None
+[0m11:57:49.608759 [debug] [MainThread]: Databricks adapter: Exception while trying to execute query
+select 1 as id
+: Database Error
+  Error during request to server. 
+[0m11:57:49.609159 [debug] [MainThread]: On debug: No close available on handle
+[0m11:57:49.609434 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m11:57:49.609667 [info ] [MainThread]: [31m1 check failed:[0m
+[0m11:57:49.609868 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  Database Error
+    Error during request to server. 
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m11:57:49.610244 [info ] [MainThread]: Your new dbt project "insurance_claims_pipeline" was created!
+Initialized new project in /Users/vaniltonpaulo/Documents/Insurance-cliam-dbt-project/insurance_claims_pipeline/insurance_claims_pipeline
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m11:57:49.610483 [info ] [MainThread]: [31mYour profile may need adjustments. You can find the logs of `dbt debug` above[0m
+[0m11:57:49.638599 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 475.25912, "process_in_blocks": "0", "process_kernel_time": 0.446374, "process_mem_max_rss": "239484928", "process_out_blocks": "0", "process_user_time": 1.808296}
+[0m11:57:49.639317 [debug] [MainThread]: Command `dbt init` succeeded at 11:57:49.639176 after 475.26 seconds
+[0m11:57:49.639797 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11416fe10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1141ff770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11424ce20>]}
+[0m11:57:49.640319 [debug] [MainThread]: Flushing usage events
+[0m11:57:50.285408 [debug] [MainThread]: An error was encountered while trying to flush usage events
