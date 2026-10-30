@@ -56,6 +56,12 @@ flowchart TD
 ![Insurance Claims Analysis dashboard](docs/dashboard-screenshot.png)
 -->
 
+![Dashboard Screenshot](docs/dashboard-screenshot.png)
+
+## Data Lineage
+
+![dbt Lineage Graph](docs/dbt-lineage.png)
+
 ## Testing and CI
 
 I use dbt tests to check keys, required values and relationships between the fact and dimension models. GitHub Actions runs dbt against Databricks on the CI target; the workflow also includes Python and YAML checks as part of the code-quality work.
