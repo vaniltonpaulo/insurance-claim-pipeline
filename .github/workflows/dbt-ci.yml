@@ -1,21 +1,16 @@
+---
 name: dbt CI
-
 on:
   push:
     branches: [main]
-
   pull_request:
     branches: [main]
-
   workflow_dispatch:
-
 permissions:
   contents: read
-
 concurrency:
   group: dbt-ci-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
-
 jobs:
   # ==================================
   # JOB 1: Code Quality
@@ -24,30 +19,23 @@ jobs:
     name: Python & YAML Linting
     runs-on: ubuntu-latest
     timeout-minutes: 10
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.13"
-
+          python-version: '3.13'
       - name: Install uv
         uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
-
       - name: Install dependencies
         run: uv sync --locked --python 3.13
-
       - name: Lint Python with Ruff
         run: uv run ruff check src
-
       - name: Check Python formatting
         run: uv run ruff format --check src
-
       - name: Lint YAML files
         run: |
           uv run yamllint -d relaxed \
@@ -68,48 +56,38 @@ jobs:
     if: >-
       github.event_name != 'pull_request' ||
       github.event.pull_request.head.repo.full_name == github.repository
-
     defaults:
       run:
         working-directory: insurance_claims_pipeline
-
     env:
       DBT_PROFILES_DIR: ${{ github.workspace }}/insurance_claims_pipeline
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.13"
-
+          python-version: '3.13'
       - name: Install uv
         uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
-
       - name: Install dependencies
         run: uv sync --project .. --locked --python 3.13
-
       - name: Install dbt packages
         run: uv run --project .. dbt deps
-
       - name: Check Databricks connection
         env:
           DBT_DATABRICKS_HOST: ${{ secrets.DBT_DATABRICKS_HOST }}
           DBT_DATABRICKS_HTTP_PATH: ${{ secrets.DBT_DATABRICKS_HTTP_PATH }}
           DBT_DATABRICKS_TOKEN: ${{ secrets.DBT_DATABRICKS_TOKEN }}
         run: uv run --project .. dbt debug --target ci
-
       - name: Build and test dbt models
         env:
           DBT_DATABRICKS_HOST: ${{ secrets.DBT_DATABRICKS_HOST }}
           DBT_DATABRICKS_HTTP_PATH: ${{ secrets.DBT_DATABRICKS_HTTP_PATH }}
           DBT_DATABRICKS_TOKEN: ${{ secrets.DBT_DATABRICKS_TOKEN }}
         run: uv run --project .. dbt build --target ci
-
       - name: Upload dbt artifacts
         if: always()
         uses: actions/upload-artifact@v4

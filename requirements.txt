@@ -1,4 +1,5 @@
 agate==1.9.1
+annotated-doc==0.0.5
 annotated-types==0.8.0
 attrs==26.1.0
 babel==2.18.0
@@ -20,19 +21,23 @@ dbt-extractor==0.6.0
 dbt-protos==1.0.615
 dbt-spark==1.10.3
 deepdiff==8.6.2
+distro==1.9.0
 et-xmlfile==2.0.0
 google-auth==2.62.0
 idna==3.20
 importlib-metadata==10.1.0
--e file:///Users/vaniltonpaulo/Documents/Insurance-cliam-dbt-project
 isodate==0.7.2
 jinja2==3.1.6
 jsonschema==4.26.0
 jsonschema-specifications==2025.9.1
 leather==0.4.1
+loguru==0.7.3
 lz4==4.4.5
+maison==2.0.2
+markdown-it-py==4.2.0
 markupsafe==3.0.4
 mashumaro==3.17
+mdurl==0.1.2
 metricflow==0.213.0
 more-itertools==10.8.0
 msgpack==1.2.4
@@ -46,6 +51,7 @@ packaging==25.0
 pandas==3.1.0
 parsedatetime==2.6
 pathspec==1.0.4
+platformdirs==4.14.0
 protobuf==6.33.6
 pyarrow==26.0.0
 pyasn1==0.6.5
@@ -54,6 +60,7 @@ pybreaker==1.4.1
 pycparser==3.12
 pydantic==2.12.5
 pydantic-core==2.41.5
+pygments==2.21.0
 pyjwt==2.15.1
 python-dateutil==2.9.0.post0
 python-dotenv==1.2.4
@@ -64,7 +71,12 @@ pyyaml==6.0.3
 rapidfuzz==3.14.6
 referencing==0.37.0
 requests==2.34.2
+rich==15.0.0
 rpds-py==2026.9.1
+ruff==0.17.3
+ruyaml==0.91.0
+setuptools==84.2.1
+shellingham==1.5.4
 six==1.17.0
 snowplow-tracker==1.1.0
 sqlglot==30.26.0
@@ -73,7 +85,10 @@ sqlparse==0.6.0
 tabulate==0.10.0
 text-unidecode==1.3
 thrift==0.24.0
+typer==0.27.3
 typing-extensions==4.16.0
 typing-inspection==0.4.4
 urllib3==2.8.0
+yamlfix==1.19.1
+yamllint==1.38.0
 zipp==4.1.2

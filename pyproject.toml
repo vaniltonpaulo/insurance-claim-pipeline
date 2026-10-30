@@ -21,5 +21,6 @@ package = false
 [dependency-groups]
 dev = [
     "ruff>=0.17.3",
+    "yamlfix>=1.19.1",
     "yamllint>=1.38.0",
 ]
