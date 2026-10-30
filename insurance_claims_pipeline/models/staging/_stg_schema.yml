@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_claims
+    description: "Cleaned and standardized insurance claims from Bronze layer"
+    columns:
+      - name: policy_number
+        description: "Unique policy identifier"
+        tests:
+          - not_null
+          - unique
+      - name: incident_date
+        description: "Date of the incident"
+        tests:
+          - not_null
+      - name: total_claim_amount
+        description: "Total claim amount in USD"
+        tests:
+          - not_null
+      - name: incident_severity
+        description: "Severity classification of the incident"
+        tests:
+          - accepted_values:
+             arguments:
+              values: ['Minor Damage', 'Major Damage', 'Total Loss', 'Trivial Damage']
+      - name: incident_type
+        description: "Type of incident"
+        tests:
+          - accepted_values:
+             arguments:
+              values: ['Single Vehicle Collision', 'Vehicle Theft', 'Multi-vehicle Collision', 'Parked Car']
+      - name: is_fraud
+        description: "Whether fraud was reported (true/false)"
+        tests:
+          - not_null
