@@ -33,5 +33,8 @@ models:
   insurance_claims_pipeline:
     # Config indicated by + and applies to all files under models/example/
     staging:
-      +materialized: table
+      +materialized: view
       +schema: silver
+    marts:
+      +schema: gold
+      +materialized: table
