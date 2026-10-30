@@ -14,7 +14,7 @@ models:
           - not_null
 
   - name: dim_vehicle
-    description: "Vehicle dimension table with make, model, and year"
+    description: "Vehicle dimension table with make, model, and year.1"
     columns:
       - name: vehicle_key
         description: "Surrogate key for vehicle"
