@@ -77,6 +77,6 @@ models:
         tests:
           - not_null
       - name: risk_score
-        description: "Composite fraud risk score (0-4)"
+        description: "Composite fraud risk score (0 - 4)"
         tests:
           - not_null
