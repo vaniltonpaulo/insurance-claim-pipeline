@@ -1,9 +1,14 @@
 
+config-version: 2
+
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
 name: 'insurance_claims_pipeline'
 version: '1.0.0'
+
+# This project targets Databricks; ensure the dbt Databricks adapter is
+# installed in the same environment that runs dbt.
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'insurance_claims_pipeline'

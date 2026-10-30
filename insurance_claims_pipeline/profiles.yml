@@ -1,0 +1,11 @@
+insurance_claims_pipeline:
+  target: ci
+  outputs:
+    ci:
+      type: databricks
+      catalog: insurance
+      schema: ci_{{ env_var('GITHUB_RUN_ID', 'local') }}
+      host: "{{ env_var('DBT_DATABRICKS_HOST') }}"
+      http_path: "{{ env_var('DBT_DATABRICKS_HTTP_PATH') }}"
+      token: "{{ env_var('DBT_DATABRICKS_TOKEN') }}"
+      threads: 1
