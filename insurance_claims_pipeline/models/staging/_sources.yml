@@ -1,3 +1,4 @@
+
 version: 2
 
 sources:
@@ -5,12 +6,15 @@ sources:
     database: insurance
     schema: bronze
     config:
-      # Column used to determine when data was last loaded
       loaded_at_field: _ingested_at
-      # Freshness thresholds for monitoring
       freshness:
-        warn_after: {count: 24, period: hour}
-        error_after: {count: 48, period: hour}
+        warn_after:
+          count: 24
+          period: hour
+        error_after:
+          count: 48
+          period: hour
+
     tables:
       - name: raw_claims
         description: "Raw auto insurance claims data ingested from Kaggle CSV"
