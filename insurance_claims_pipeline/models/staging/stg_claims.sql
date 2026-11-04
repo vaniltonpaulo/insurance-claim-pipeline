@@ -1,8 +1,37 @@
+
+-- Problem:  stg_claims is a non-incremental model, which means that it will reprocess all rows from the Bronze 
+    -- source every time it runs. This can be inefficient and slow, especially as the volume of data grows over time.
+--Solution:An incremental model changes this behavior by tracking the most recent _ingested_at timestamp and 
+   --- only processing rows that arrived after the last run.
+
+
+ --The unique_key tells dbt to use policy_number to identify existing rows so it can update them instead of creating duplicates.
+ -- The incremental_strategy='merge' tells Delta Lake to perform a MERGE operation.
+  -- New rows get inserted and existing rows get updated.
+
+  --- The  if is_incremental()  block adds a WHERE clause that only runs on subsequent executions.
+   -- It filters for rows where _ingested_at is greater than the most recent timestamp already in the table.
+
+
+   -- On the very first run, is_incremental() returns false because the table does not exist yet.
+    ---  dbt processes all rows. Every run after that only processes new data.
+{{
+    config(
+        materialized='incremental',
+        unique_key='policy_number',
+        incremental_strategy='merge'
+    )
+}}
+
+
 -- Pull all columns from the Bronze source
+
 WITH source AS (
     SELECT *
     FROM {{ source('bronze', 'raw_claims') }}
 ),
+
+
 
 cleaned AS (
     SELECT
