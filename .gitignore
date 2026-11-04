@@ -10,3 +10,4 @@ wheels/
 .venv
 
 connection_info.txt
+.env
