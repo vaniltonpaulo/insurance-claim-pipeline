@@ -1,7 +1,12 @@
+# dbt connection profiles for the insurance claims pipeline.
+# DEV: local development | CI: automated testing via GitHub Actions.
+
 insurance_claims_pipeline:
-  target: dev
+  target: dev  # Default environment when --target is not specified
 
   outputs:
+    # DEVELOPMENT
+    # Builds models in insurance.dbt_dev without affecting CI tables.
     dev:
       type: databricks
       catalog: insurance
@@ -9,8 +14,11 @@ insurance_claims_pipeline:
       host: "{{ env_var('DBT_DATABRICKS_HOST') }}"
       http_path: "{{ env_var('DBT_DATABRICKS_HTTP_PATH') }}"
       token: "{{ env_var('DBT_DATABRICKS_TOKEN') }}"
-      threads: 4
+      threads: 4  # Maximum concurrent dbt model executions
 
+    # CONTINUOUS INTEGRATION (CI)
+    # GitHub Actions uses this target to build and test code.
+    # Each workflow run gets its own schema to avoid conflicts.
     ci:
       type: databricks
       catalog: insurance
@@ -18,4 +26,4 @@ insurance_claims_pipeline:
       host: "{{ env_var('DBT_DATABRICKS_HOST') }}"
       http_path: "{{ env_var('DBT_DATABRICKS_HTTP_PATH') }}"
       token: "{{ env_var('DBT_DATABRICKS_TOKEN') }}"
-      threads: 1
+      threads: 1  # Run one dbt operation at a time
