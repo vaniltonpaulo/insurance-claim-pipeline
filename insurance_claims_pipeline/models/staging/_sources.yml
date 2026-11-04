@@ -1,14 +1,25 @@
----
+
 version: 2
+
 sources:
   - name: bronze
     database: insurance
     schema: bronze
+    config:
+      loaded_at_field: _ingested_at
+      freshness:
+        warn_after:
+          count: 24
+          period: hour
+        error_after:
+          count: 48
+          period: hour
+
     tables:
       - name: raw_claims
-        description: Raw auto insurance claims data ingested from Kaggle CSV
+        description: "Raw auto insurance claims data ingested from Kaggle CSV"
         columns:
           - name: policy_number
-            description: Unique policy identifier
+            description: "Unique policy identifier"
           - name: fraud_reported
-            description: Whether fraud was reported (Y/N)
+            description: "Whether fraud was reported (Y/N)"
